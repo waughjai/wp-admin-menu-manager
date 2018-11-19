@@ -1,4 +1,4 @@
-Composer Template
+WP Admin Menu Factory
 =========================
 
-Template for easily making composer projects.
+Factory for making default admin menus.
