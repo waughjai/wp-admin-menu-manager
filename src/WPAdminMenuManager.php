@@ -25,6 +25,21 @@ namespace WaughJ\WPAdminMenuManager
 			}
 		}
 
+		public static function getHeaderMenuContent( $attributes = null ) : string
+		{
+			return self::getAdminMenuContent( self::HEADER_SLUG, $attributes );
+		}
+
+		public static function getFooterMenuContent( $attributes = null ) : string
+		{
+			return self::getAdminMenuContent( self::FOOTER_SLUG, $attributes );
+		}
+
+		public static function getAdminMenuContent( string $slug, $attributes = null ) : string
+		{
+			return ( isset( self::$menus[ $slug ] ) ) ? self::$menus[ $slug ]->getMenuContent( $attributes ) : '';
+		}
+
 		public static function createHeaderMenu() : WPAdminMenu
 		{
 			return self::createAdminMenu

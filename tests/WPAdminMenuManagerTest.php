@@ -39,6 +39,14 @@ class WPAdminMenuManagerTest extends TestCase
 		$this->assertEquals( '', ob_get_clean() );
 	}
 
+	public function testGetMenuContent()
+	{
+		WPAdminMenuManager::createAdminMenu( 'get-nav', 'New Menu', [ 'nav' => [ 'class' => 'get-nav' ]]);
+		$this->assertEquals( '<nav class="get-nav"><ul><li><a href="https://www.jaimeson-waugh.com">Some Post</a><ul><li><a href="https://www.jaimeson-waugh.com">Some Post Child</a></li></ul></li></ul></nav>', WPAdminMenuManager::getAdminMenuContent( 'get-nav' ) );
+		WPAdminMenuManager::createHeaderMenu();
+		$this->assertEquals( '<nav class="' . self::ATTRIBUTES[ 'nav' ][ 'class' ] . '" id="' . self::ATTRIBUTES[ 'nav' ][ 'id' ] . '"><ul class="' . self::ATTRIBUTES[ 'ul' ][ 'class' ] . '" id="' . self::ATTRIBUTES[ 'ul' ][ 'id' ] . '"><li class="skip-content-item ' . self::ATTRIBUTES[ 'li' ][ 'class' ] . '"><a class="' . self::ATTRIBUTES[ 'a' ][ 'class' ] . ' skip-content-link" href="#' . self::ATTRIBUTES[ 'skip-to-content' ] . '">Skip to Content</a></li><li class="' . self::ATTRIBUTES[ 'li' ][ 'class' ] . '"><a class="' . self::ATTRIBUTES[ 'a' ][ 'class' ] . ' ' . self::ATTRIBUTES[ 'link-parent' ][ 'class' ] . '" href="https://www.jaimeson-waugh.com">Some Post</a><ul class="' . self::ATTRIBUTES[ 'sublist' ][ 'class' ] . '"><li class="' . self::ATTRIBUTES[ 'subitem' ][ 'class' ] . '"><a class="' . self::ATTRIBUTES[ 'sublink' ][ 'class' ] . '" href="https://www.jaimeson-waugh.com">Some Post Child</a></li></ul></li></ul></nav>', WPAdminMenuManager::getHeaderMenuContent() );
+	}
+
 	const ATTRIBUTES =
 	[
 		'nav' =>
