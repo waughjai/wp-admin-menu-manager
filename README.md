@@ -1,4 +1,4 @@
-WP Admin Menu Factory
+WP Admin Menu Manager
 =========================
 
-Factory for making default admin menus.
+Singleton manager for making and printing admin menus & making them easily accessible to both WordPress Admin & public website.

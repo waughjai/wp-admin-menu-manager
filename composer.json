@@ -1,6 +1,6 @@
 {
-    "name": "waughj/wp-admin-menu-factory",
-    "description": "Factory for making default admin menus.",
+    "name": "waughj/wp-admin-menu-manager",
+    "description": "Singleton manager for making and printing admin menus & making them easily accessible to both WordPress Admin & public website.",
     "keywords": [ "wordpress", "admin", "menu", "links", "template", "factory", "defaults" ],
     "license": "GPL-2.0-or-later",
     "authors": [
@@ -12,14 +12,14 @@
     "type": "library",
     "require": {
 		"php": ">=7.0",
-		"waughj/wp-admin-menu": ">=0.3.1"
+		"waughj/wp-admin-menu": ">=0.4.1"
     },
     "require-dev": {
 		"phpunit/phpunit": "6.*"
     },
     "autoload": {
         "psr-4": {
-            "WaughJ\\WPAdminMenuFactory\\": "src/"
+            "WaughJ\\WPAdminMenuManager\\": "src/"
         }
     }
 }
