@@ -75,12 +75,12 @@ namespace WaughJ\WPAdminMenuManager
 			'nav' =>
 			[
 				'class' => 'header-nav',
-				'id' => 'header-nav-1'
+				'id' => 'header-nav'
 			],
 			'ul' =>
 			[
 				'class' => 'header-nav-list',
-				'id' => 'header-nav-list-1'
+				'id' => 'header-nav-list'
 			],
 			'li' =>
 			[
