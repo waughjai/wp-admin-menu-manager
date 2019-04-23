@@ -34,7 +34,7 @@
 
 	function get_nav_menu_locations()
 	{
-		return [ 'header-nav' => null, 'new-nav' => null, 'get-nav' => null ];
+		return [ 'header-nav' => null, 'footer-nav' => null, 'new-nav' => null, 'get-nav' => null, 'nu-nav' => null ];
 	}
 
 	function wp_get_nav_menu_object( $thing )

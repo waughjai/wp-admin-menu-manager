@@ -66,6 +66,36 @@ namespace WaughJ\WPAdminMenuManager
 			return self::$menus[ $slug ];
 		}
 
+		public static function getHeaderMenu()
+		{
+			return self::getAdminMenu( self::HEADER_SLUG );
+		}
+
+		public static function getFooterMenu()
+		{
+			return self::getAdminMenu( self::FOOTER_SLUG );
+		}
+
+		public static function getAdminMenu( string $slug )
+		{
+			return ( isset( self::$menus[ $slug ] ) ) ? self::$menus[ $slug ] : null;
+		}
+
+		public static function getAdminMenuList( string $slug ) : array
+		{
+			return ( isset( self::$menus[ $slug ] ) ) ? self::$menus[ $slug ]->getMenu() : [];
+		}
+
+		public static function getHeaderMenuList() : array
+		{
+			return self::getAdminMenuList( self::HEADER_SLUG );
+		}
+
+		public static function getFooterMenuList() : array
+		{
+			return self::getAdminMenuList( self::FOOTER_SLUG );
+		}
+
 		private static $menus = [];
 
 		const HEADER_SLUG = 'header-nav';

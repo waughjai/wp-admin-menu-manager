@@ -47,6 +47,37 @@ class WPAdminMenuManagerTest extends TestCase
 		$this->assertEquals( '<nav class="' . WPAdminMenuManager::HEADER_ATTRIBUTES[ 'nav' ][ 'class' ] . '" id="' . WPAdminMenuManager::HEADER_ATTRIBUTES[ 'nav' ][ 'id' ] . '"><ul class="' . WPAdminMenuManager::HEADER_ATTRIBUTES[ 'ul' ][ 'class' ] . '" id="' . WPAdminMenuManager::HEADER_ATTRIBUTES[ 'ul' ][ 'id' ] . '"><li class="skip-content-item ' . WPAdminMenuManager::HEADER_ATTRIBUTES[ 'li' ][ 'class' ] . '"><a class="' . WPAdminMenuManager::HEADER_ATTRIBUTES[ 'a' ][ 'class' ] . ' skip-content-link" href="#' . WPAdminMenuManager::HEADER_ATTRIBUTES[ 'skip-to-content' ] . '">Skip to Content</a></li><li class="' . WPAdminMenuManager::HEADER_ATTRIBUTES[ 'li' ][ 'class' ] . '"><a class="' . WPAdminMenuManager::HEADER_ATTRIBUTES[ 'a' ][ 'class' ] . ' ' . WPAdminMenuManager::HEADER_ATTRIBUTES[ 'link-parent' ][ 'class' ] . '" href="https://www.jaimeson-waugh.com">Some Post</a><ul class="' . WPAdminMenuManager::HEADER_ATTRIBUTES[ 'sublist' ][ 'class' ] . '"><li class="' . WPAdminMenuManager::HEADER_ATTRIBUTES[ 'subitem' ][ 'class' ] . '"><a class="' . WPAdminMenuManager::HEADER_ATTRIBUTES[ 'sublink' ][ 'class' ] . '" href="https://www.jaimeson-waugh.com">Some Post Child</a></li></ul></li></ul></nav>', WPAdminMenuManager::getHeaderMenuContent() );
 	}
 
+	public function testGetAdminMenu()
+	{
+		$this->assertEquals( WPAdminMenuManager::createAdminMenu( 'get-nav', 'New Menu', [ 'nav' => [ 'class' => 'get-nav' ]]), WPAdminMenuManager::getAdminMenu( 'get-nav' ) );
+	}
+
+	public function testGetHeaderMenu()
+	{
+		$this->assertEquals( WPAdminMenuManager::createHeaderMenu(), WPAdminMenuManager::getHeaderMenu() );
+	}
+
+	public function testGetFooterMenu()
+	{
+		$this->assertEquals( WPAdminMenuManager::createFooterMenu(), WPAdminMenuManager::getFooterMenu() );
+	}
+
+	public function testGetAdminMenuList()
+	{
+		WPAdminMenuManager::createAdminMenu( 'nu-nav', 'Nu Menu' );
+		$this->assertEquals( WPAdminMenuManager::getAdminMenuList( 'nu-nav' ), WPAdminMenuManager::getAdminMenu( 'nu-nav' )->getMenu() );
+	}
+
+	public function testGetHeaderMenuList()
+	{
+		$this->assertEquals( WPAdminMenuManager::getHeaderMenuList(), WPAdminMenuManager::getHeaderMenu()->getMenu() );
+	}
+
+	public function testGetFooterMenuList()
+	{
+		$this->assertEquals( WPAdminMenuManager::getFooterMenuList(), WPAdminMenuManager::getFooterMenu()->getMenu() );
+	}
+
 	const ATTRIBUTES =
 	[
 		'nav' =>
