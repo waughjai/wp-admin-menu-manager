@@ -12,10 +12,7 @@
     "type": "library",
     "require": {
 		"php": ">=7.2",
-		"waughj/wp-admin-menu": ">=0.6.1"
-    },
-    "require-dev": {
-		"phpunit/phpunit": "*"
+		"waughj/wp-admin-menu": "^0.9.0"
     },
     "autoload": {
         "psr-4": {

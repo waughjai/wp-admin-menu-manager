@@ -40,29 +40,31 @@ class WPAdminMenuManager
 		return ( isset( self::$menus[ $slug ] ) ) ? self::$menus[ $slug ]->getMenuContent( $attributes ) : '';
 	}
 
-	public static function createHeaderMenu() : WPAdminMenu
+	public static function createHeaderMenu( ?callable $error_handler = null ) : WPAdminMenu
 	{
 		return self::createAdminMenu
 		(
 			self::HEADER_SLUG,
 			self::HEADER_TITLE,
-			self::HEADER_ATTRIBUTES
+			self::HEADER_ATTRIBUTES,
+			$error_handler
 		);
 	}
 
-	public static function createFooterMenu() : WPAdminMenu
+	public static function createFooterMenu( ?callable $error_handler = null ) : WPAdminMenu
 	{
 		return self::createAdminMenu
 		(
 			self::FOOTER_SLUG,
 			self::FOOTER_TITLE,
-			self::FOOTER_ATTRIBUTES
+			self::FOOTER_ATTRIBUTES,
+			$error_handler
 		);
 	}
 
-	public static function createAdminMenu( string $slug, string $title, array $attributes = [] ) : WPAdminMenu
+	public static function createAdminMenu( string $slug, string $title, array $attributes = [], ?callable $error_handler = null ) : WPAdminMenu
 	{
-		self::$menus[ $slug ] = new WPAdminMenu( $slug, $title, $attributes );
+		self::$menus[ $slug ] = new WPAdminMenu( $slug, $title, $attributes, $error_handler );
 		return self::$menus[ $slug ];
 	}
 
