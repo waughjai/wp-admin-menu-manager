@@ -67,8 +67,8 @@ Handling errors:
 ### 0.3.0
 * Add Getter Methods
 
-### v0.2.0
+### 0.2.0
 * Revamp as Manager
 
-### v0.1.0
+### 0.1.0
 * Initial version
